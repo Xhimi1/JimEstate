@@ -79,10 +79,10 @@ export default function Navbar() {
               className="text-sm transition-colors duration-300"
               style={{
                 fontWeight: 400,
-                color: transparent ? 'rgba(255,255,255,0.75)' : '#737373',
+                color: transparent ? 'rgba(255,255,255,0.75)' : '#404040',
               }}
               onMouseEnter={e => { e.currentTarget.style.color = transparent ? '#ffffff' : '#171717' }}
-              onMouseLeave={e => { e.currentTarget.style.color = transparent ? 'rgba(255,255,255,0.75)' : '#737373' }}
+              onMouseLeave={e => { e.currentTarget.style.color = transparent ? 'rgba(255,255,255,0.75)' : '#404040' }}
             >
               {link.label}
             </Link>
