@@ -34,7 +34,7 @@ export default function AboutPage() {
       <div className="px-6 py-24">
         <div className="mx-auto max-w-7xl">
           {/* Two Column Layout */}
-          <div className="mb-24 grid grid-cols-1 gap-16 lg:grid-cols-2">
+          <div className="mb-4 md:mb-24 grid grid-cols-1 gap-4 lg:gap-16 lg:grid-cols-2">
             {/* Left: Text */}
             <div className="space-y-6">
               <p className="text-lg leading-relaxed text-neutral-600">
@@ -75,14 +75,14 @@ export default function AboutPage() {
               <img
                 src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80"
                 alt="Property interior"
-                className="h-72 w-full object-cover transition-transform duration-700 hover:scale-105"
+                className="h-72 w-full object-cover"
               />
             </div>
             <div className="overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=900&q=80"
                 alt="Property living space"
-                className="h-72 w-full object-cover transition-transform duration-700 hover:scale-105"
+                className="h-72 w-full object-cover"
               />
             </div>
           </div>

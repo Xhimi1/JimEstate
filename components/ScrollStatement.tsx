@@ -15,12 +15,12 @@ export default function ScrollStatement() {
     const words = containerRef.current?.querySelectorAll<HTMLSpanElement>('.word')
     if (!words || words.length === 0) return
 
-    words.forEach((word, i) => {
+    words.forEach((word) => {
       gsap.fromTo(
         word,
         { color: '#d4d4d4' },
         {
-          color: '#171717',
+          color: '#525252',
           scrollTrigger: {
             trigger: word,
             start: 'top 85%',
@@ -40,16 +40,14 @@ export default function ScrollStatement() {
   const words = STATEMENT.split(' ')
 
   return (
-    <div ref={containerRef} className="py-24 px-6">
-      <div className="mx-auto max-w-7xl">
-        <p className="text-4xl leading-tight md:text-5xl lg:text-6xl" style={{ fontWeight: 350 }}>
-          {words.map((word, i) => (
-            <span key={i} className="word inline-block mr-[0.3em]" style={{ color: '#d4d4d4' }}>
-              {word}
-            </span>
-          ))}
-        </p>
-      </div>
+    <div ref={containerRef} className="py-24">
+      <p className="text-4xl leading-tight md:text-5xl lg:text-6xl" style={{ fontWeight: 400 }}>
+        {words.map((word, i) => (
+          <span key={i} className="word inline-block mr-[0.3em]" style={{ color: '#d4d4d4' }}>
+            {word}
+          </span>
+        ))}
+      </p>
     </div>
   )
 }
