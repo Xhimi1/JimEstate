@@ -78,14 +78,9 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 bg-black/55" />
         <div className="relative z-10 flex h-full items-end px-8 pb-16 md:px-14 md:pb-20">
-          <div className="flex flex-col gap-1">
-            <p className="text-xs font-medium uppercase tracking-[0.3em] text-white/50 mb-4">Est. 2010 · Luxury Real Estate</p>
-            <h1 style={{ fontWeight: 350 }}>
-              <span className="block text-4xl leading-tight text-white md:text-6xl lg:text-7xl">Exceptional homes</span>
-              <span className="block text-4xl leading-tight text-white/70 md:text-6xl lg:text-7xl">in the world's finest</span>
-              <span className="block text-4xl leading-tight text-white/40 md:text-6xl lg:text-7xl">neighborhoods.</span>
-            </h1>
-          </div>
+          <h1 className="max-w-6xl text-4xl leading-tight text-white md:text-6xl lg:text-7xl" style={{ fontWeight: 350 }}>
+            Exceptional homes in the world's finest neighborhoods
+          </h1>
         </div>
       </section>
 
@@ -172,9 +167,10 @@ export default function HomePage() {
             <p className="mb-3 text-xs font-medium text-neutral-400">
               Our Portfolio
             </p>
-            <h2 className="text-3xl md:text-4xl" style={{ fontWeight: 400 }}>
-              <span className="text-neutral-900">A Glimpse</span>
-              <span className="text-neutral-400"> Inside</span>
+            <h2 style={{ fontWeight: 400 }}>
+              <span className="block text-3xl leading-tight text-neutral-900 md:text-4xl">A Glimpse</span>
+              <span className="block text-3xl leading-tight text-neutral-400 md:text-4xl">Into Luxury</span>
+              <span className="block text-3xl leading-tight text-neutral-300 md:text-4xl">Living.</span>
             </h2>
           </motion.div>
 
