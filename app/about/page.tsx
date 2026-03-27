@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import StatsCounter from '@/components/StatsCounter'
 
 export const metadata: Metadata = {
   title: 'About | JimsEstate',
@@ -87,20 +88,7 @@ export default function AboutPage() {
 
           {/* Stats Row */}
           <div className="mb-24 border-t border-b border-neutral-100 py-14">
-            <div className="grid grid-cols-1 gap-10 text-center md:grid-cols-3">
-              {[
-                { value: '6', label: 'Active Listings' },
-                { value: '10+', label: 'Years Experience' },
-                { value: '50+', label: 'Happy Clients' },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <p className="mb-2 text-6xl font-semibold text-neutral-900 md:text-7xl">{stat.value}</p>
-                  <p className="text-base font-medium text-neutral-400 md:text-lg">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <StatsCounter />
           </div>
 
           {/* Contact & Team */}
