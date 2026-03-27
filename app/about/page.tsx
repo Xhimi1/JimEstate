@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import StatsCounter from '@/components/StatsCounter'
 import ScrollStatement from '@/components/ScrollStatement'
 import ScrollHero from '@/components/ScrollHero'
 
@@ -86,11 +85,6 @@ export default function AboutPage() {
 
           {/* Scroll Statement */}
           <ScrollStatement />
-
-          {/* Stats Row */}
-          <div className="mb-24">
-            <StatsCounter />
-          </div>
 
           {/* Contact & Team */}
           <div className="grid grid-cols-1 gap-16 md:grid-cols-2">
