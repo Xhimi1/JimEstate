@@ -124,34 +124,44 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div>
+            <div className="md:pt-8">
               <h2 className="mb-8 text-3xl font-semibold text-neutral-900">
                 Our Principals
               </h2>
-              <div className="space-y-8">
+              <div className="space-y-4">
                 {[
                   {
                     name: 'Jim Hargreaves',
                     role: 'Founder & Principal Broker',
                     bio: 'Licensed in CT, NY, and NJ with over fifteen years of experience in luxury residential real estate.',
+                    photo: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80',
                   },
                   {
                     name: 'Sarah Calloway',
                     role: 'Senior Agent',
                     bio: 'Specializing in waterfront and historic properties across Fairfield County and the Hudson Valley.',
+                    photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80',
                   },
                   {
                     name: 'Marcus Webb',
                     role: "Buyer's Specialist",
                     bio: 'Dedicated to helping first-time and move-up buyers navigate competitive markets with confidence.',
+                    photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80',
                   },
                 ].map((person) => (
-                  <div key={person.name} className="border-l-2 border-neutral-200 pl-5">
-                    <p className="mb-0.5 font-semibold text-neutral-900">{person.name}</p>
-                    <p className="mb-2 text-xs font-medium lowercase tracking-widest text-neutral-400">
-                      {person.role}
-                    </p>
-                    <p className="text-sm text-neutral-500">{person.bio}</p>
+                  <div key={person.name} className="flex gap-5 border border-neutral-200 bg-white p-5">
+                    <img
+                      src={person.photo}
+                      alt={person.name}
+                      className="h-20 w-20 shrink-0 object-cover object-top"
+                    />
+                    <div>
+                      <p className="mb-0.5 text-lg font-semibold text-neutral-900">{person.name}</p>
+                      <p className="mb-2 text-xs font-medium tracking-widest text-neutral-400">
+                        {person.role}
+                      </p>
+                      <p className="text-sm text-neutral-500">{person.bio}</p>
+                    </div>
                   </div>
                 ))}
               </div>
