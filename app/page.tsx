@@ -5,7 +5,6 @@ import { motion, useInView } from 'framer-motion'
 import { listings } from '@/data/listings'
 import PropertyCard from '@/components/PropertyCard'
 import Link from 'next/link'
-import { Sparkles, Images, MapPin } from 'lucide-react'
 
 const reveal = {
   hidden: { opacity: 0, y: 60, clipPath: 'inset(20% 0 0 0)' },
@@ -79,9 +78,14 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 bg-black/55" />
         <div className="relative z-10 flex h-full items-end px-8 pb-16 md:px-14 md:pb-20">
-          <h1 className="max-w-6xl text-4xl leading-tight text-white md:text-6xl lg:text-7xl" style={{ fontWeight: 350 }}>
-            Exceptional homes in the world's finest neighborhoods
-          </h1>
+          <div className="flex flex-col gap-1">
+            <p className="text-xs font-medium uppercase tracking-[0.3em] text-white/50 mb-4">Est. 2010 · Luxury Real Estate</p>
+            <h1 style={{ fontWeight: 350 }}>
+              <span className="block text-4xl leading-tight text-white md:text-6xl lg:text-7xl">Exceptional homes</span>
+              <span className="block text-4xl leading-tight text-white/70 md:text-6xl lg:text-7xl">in the world's finest</span>
+              <span className="block text-4xl leading-tight text-white/40 md:text-6xl lg:text-7xl">neighborhoods.</span>
+            </h1>
+          </div>
         </div>
       </section>
 
@@ -120,8 +124,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl">
           <motion.div variants={reveal} className="mb-16 flex items-end justify-between">
             <div>
-              <p className="mb-3 flex items-center gap-1.5 text-xs font-medium text-neutral-400">
-                <Sparkles className="h-3.5 w-3.5 text-neutral-400" />
+              <p className="mb-3 text-xs font-medium text-neutral-400">
                 Curated Selection
               </p>
               <h2 className="text-3xl font-medium text-neutral-900 md:text-4xl" style={{ fontWeight: 400 }}>
@@ -166,8 +169,7 @@ export default function HomePage() {
       >
         <div className="mx-auto max-w-7xl">
           <motion.div variants={reveal} className="mb-12">
-            <p className="mb-3 flex items-center gap-1.5 text-xs font-medium text-neutral-400">
-              <Images className="h-3.5 w-3.5 text-neutral-400" />
+            <p className="mb-3 text-xs font-medium text-neutral-400">
               Our Portfolio
             </p>
             <h2 className="text-3xl md:text-4xl" style={{ fontWeight: 400 }}>
@@ -228,8 +230,7 @@ export default function HomePage() {
           viewport={{ once: true, amount: 0.4 }}
           variants={stagger}
         >
-          <motion.p variants={reveal} className="mb-4 flex items-center justify-center gap-1.5 text-xs font-medium text-white/50">
-            <MapPin className="h-3.5 w-3.5 text-white/40" />
+          <motion.p variants={reveal} className="mb-4 text-xs font-medium text-white/50">
             Ready to find your home?
           </motion.p>
           <motion.h2 variants={reveal} className="mb-8 text-3xl font-medium text-white md:text-4xl" style={{ fontWeight: 350 }}>
