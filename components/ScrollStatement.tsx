@@ -6,30 +6,31 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const STATEMENT = 'Your next chapter begins with finding a home that truly feels like yours.'
+const PART1 = ['Your', 'next', 'chapter', 'begins']
+const PART2 = ['with', 'finding', 'a', 'home', 'that', 'truly', 'feels', 'like', 'yours.']
 
 export default function ScrollStatement() {
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const words = containerRef.current?.querySelectorAll<HTMLSpanElement>('.word')
-    if (!words || words.length === 0) return
+    const darkWords = containerRef.current?.querySelectorAll<HTMLSpanElement>('.word-dark')
+    const lightWords = containerRef.current?.querySelectorAll<HTMLSpanElement>('.word-light')
+    if (!darkWords || !lightWords) return
 
-    words.forEach((word) => {
-      gsap.fromTo(
-        word,
-        { color: '#d4d4d4' },
-        {
-          color: '#525252',
-          scrollTrigger: {
-            trigger: word,
-            start: 'top 85%',
-            end: 'top 55%',
-            scrub: true,
-          },
-          ease: 'none',
-        }
-      )
+    darkWords.forEach((word) => {
+      gsap.fromTo(word, { color: '#d4d4d4' }, {
+        color: '#000000',
+        scrollTrigger: { trigger: word, start: 'top 85%', end: 'top 55%', scrub: true },
+        ease: 'none',
+      })
+    })
+
+    lightWords.forEach((word) => {
+      gsap.fromTo(word, { color: '#d4d4d4' }, {
+        color: '#6B7280',
+        scrollTrigger: { trigger: word, start: 'top 85%', end: 'top 55%', scrub: true },
+        ease: 'none',
+      })
     })
 
     return () => {
@@ -37,16 +38,23 @@ export default function ScrollStatement() {
     }
   }, [])
 
-  const words = STATEMENT.split(' ')
-
   return (
-    <div ref={containerRef} className="py-24">
-      <p className="text-4xl leading-tight md:text-5xl lg:text-6xl" style={{ fontWeight: 400 }}>
-        {words.map((word, i) => (
-          <span key={i} className="word inline-block mr-[0.3em]" style={{ color: '#d4d4d4' }}>
-            {word}
-          </span>
-        ))}
+    <div ref={containerRef} className="py-32 md:py-40">
+      <p className="text-4xl leading-snug md:text-5xl lg:text-6xl">
+        <span className="block mb-2" style={{ fontWeight: 600 }}>
+          {PART1.map((word, i) => (
+            <span key={i} className="word-dark inline-block mr-[0.3em]" style={{ color: '#d4d4d4' }}>
+              {word}
+            </span>
+          ))}
+        </span>
+        <span className="block" style={{ fontWeight: 350 }}>
+          {PART2.map((word, i) => (
+            <span key={i} className="word-light inline-block mr-[0.3em]" style={{ color: '#d4d4d4' }}>
+              {word}
+            </span>
+          ))}
+        </span>
       </p>
     </div>
   )
