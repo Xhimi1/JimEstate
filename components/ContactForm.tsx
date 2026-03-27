@@ -22,7 +22,7 @@ export default function ContactForm({ listingTitle }: ContactFormProps) {
 
   if (submitted) {
     return (
-      <div className="border border-stone-200 p-6">
+      <div className="rounded-md border border-stone-200 p-6">
         <h3 className="mb-2 text-lg font-semibold text-black">
           Request Received
         </h3>
@@ -35,7 +35,7 @@ export default function ContactForm({ listingTitle }: ContactFormProps) {
   }
 
   return (
-    <div className="border border-stone-200 p-6">
+    <div className="rounded-md border border-stone-200 p-6">
       <h3 className="mb-1 text-lg font-semibold text-black">
         Request a Showing
       </h3>
@@ -58,7 +58,7 @@ export default function ContactForm({ listingTitle }: ContactFormProps) {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Jane Smith"
-            className="w-full border border-stone-300 bg-white px-3 py-2.5 text-sm text-black placeholder-stone-400 outline-none focus:border-stone-900 rounded-none"
+            className="w-full border border-stone-300 bg-white px-3 py-2.5 text-sm text-black placeholder-stone-400 outline-none focus:border-stone-900 rounded-md"
           />
         </div>
 
@@ -76,7 +76,7 @@ export default function ContactForm({ listingTitle }: ContactFormProps) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="jane@example.com"
-            className="w-full border border-stone-300 bg-white px-3 py-2.5 text-sm text-black placeholder-stone-400 outline-none focus:border-stone-900 rounded-none"
+            className="w-full border border-stone-300 bg-white px-3 py-2.5 text-sm text-black placeholder-stone-400 outline-none focus:border-stone-900 rounded-md"
           />
         </div>
 
@@ -93,13 +93,13 @@ export default function ContactForm({ listingTitle }: ContactFormProps) {
             required
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="w-full border border-stone-300 bg-white px-3 py-2.5 text-sm text-black placeholder-stone-400 outline-none focus:border-stone-900 rounded-none resize-none"
+            className="w-full border border-stone-300 bg-white px-3 py-2.5 text-sm text-black placeholder-stone-400 outline-none focus:border-stone-900 rounded-md resize-none"
           />
         </div>
 
         <button
           type="submit"
-          className="w-full border border-stone-900 bg-stone-900 py-3 text-sm font-medium text-white hover:bg-stone-800"
+          className="w-full rounded-md border border-stone-900 bg-stone-900 py-3 text-sm font-medium text-white hover:bg-stone-800"
         >
           Request Showing
         </button>

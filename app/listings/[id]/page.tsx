@@ -50,13 +50,19 @@ export default function ListingDetailPage({ params }: PageProps) {
   return (
     <div>
       {/* Hero Image */}
-      <div className="aspect-video w-full overflow-hidden bg-stone-100">
+      <section className="relative h-[60vh] min-h-[420px] overflow-hidden">
         <img
           src={listing.image}
           alt={listing.title}
-          className="h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover"
         />
-      </div>
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 flex h-full items-end px-8 pb-16 md:px-14 md:pb-20">
+          <h1 className="max-w-4xl text-4xl leading-tight text-white md:text-5xl lg:text-6xl" style={{ fontWeight: 350 }}>
+            {listing.title}
+          </h1>
+        </div>
+      </section>
 
       <div className="px-6 py-12">
         <div className="mx-auto max-w-6xl">
@@ -82,11 +88,6 @@ export default function ListingDetailPage({ params }: PageProps) {
               <p className="mb-2 text-3xl font-bold text-black">
                 {formatPrice(listing.price)}
               </p>
-
-              {/* Title */}
-              <h1 className="mb-3 text-2xl font-bold tracking-tight text-black md:text-3xl">
-                {listing.title}
-              </h1>
 
               {/* Address */}
               <div className="mb-8 flex items-center gap-2 text-stone-500">
