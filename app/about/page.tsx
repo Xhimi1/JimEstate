@@ -11,7 +11,7 @@ export default function AboutPage() {
     <>
       {/* Hero */}
       <section
-        className="relative flex h-72 items-end overflow-hidden"
+        className="relative flex h-[70vh] min-h-[500px] items-end overflow-hidden"
         style={{
           backgroundImage:
             'url(https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1600&q=80)',
@@ -20,13 +20,12 @@ export default function AboutPage() {
         }}
       >
         <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 px-6 pb-12 md:px-12">
-          <p className="mb-2 text-xs font-medium lowercase tracking-[0.2em] text-white/50">
-            Our Story
-          </p>
-          <h1 className="text-4xl font-semibold text-white md:text-5xl">
-            About JimsEstate
-          </h1>
+        <div className="relative z-10 w-full px-6 pb-16 md:pb-20">
+          <div className="mx-auto max-w-7xl">
+            <h1 className="text-4xl leading-tight text-white md:text-5xl lg:text-6xl" style={{ fontWeight: 350 }}>
+              About JimsEstate
+            </h1>
+          </div>
         </div>
       </section>
 
@@ -68,6 +67,24 @@ export default function AboutPage() {
             </div>
           </div>
 
+          {/* Two Images */}
+          <div className="mb-24 grid grid-cols-1 gap-4 md:grid-cols-2">
+            <div className="overflow-hidden rounded-md">
+              <img
+                src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80"
+                alt="Property interior"
+                className="h-72 w-full object-cover transition-transform duration-700 hover:scale-105"
+              />
+            </div>
+            <div className="overflow-hidden rounded-md">
+              <img
+                src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=900&q=80"
+                alt="Property living space"
+                className="h-72 w-full object-cover transition-transform duration-700 hover:scale-105"
+              />
+            </div>
+          </div>
+
           {/* Stats Row */}
           <div className="mb-24 border-t border-b border-neutral-100 py-14">
             <div className="grid grid-cols-1 gap-10 text-center md:grid-cols-3">
@@ -77,8 +94,8 @@ export default function AboutPage() {
                 { value: '50+', label: 'Happy Clients' },
               ].map((stat) => (
                 <div key={stat.label}>
-                  <p className="mb-2 text-5xl font-semibold text-neutral-900">{stat.value}</p>
-                  <p className="text-xs font-medium lowercase tracking-widest text-neutral-400">
+                  <p className="mb-2 text-6xl font-semibold text-neutral-900 md:text-7xl">{stat.value}</p>
+                  <p className="text-sm font-medium text-neutral-400 md:text-base">
                     {stat.label}
                   </p>
                 </div>
