@@ -86,7 +86,7 @@ export default function AboutPage() {
 
           {/* Scroll Statement */}
           <div className="py-32 md:py-40">
-            <h2 className="hidden md:block text-4xl leading-tight mb-6" style={{ fontWeight: 400 }}>
+            <h2 className="hidden md:block text-4xl leading-tight mb-6 text-center" style={{ fontWeight: 400 }}>
               <span className="block text-neutral-900">Your next chapter begins</span>
               <span className="block text-neutral-400">with finding a home that truly feels like yours.</span>
             </h2>
@@ -94,7 +94,7 @@ export default function AboutPage() {
               <span className="text-neutral-900">Your next chapter begins </span>
               <span className="text-neutral-400">with finding a home that truly feels like yours.</span>
             </h2>
-            <div className="flex justify-start">
+            <div className="flex justify-start md:justify-center">
               <Link
                 href="/listings"
                 className="inline-block rounded bg-neutral-900 px-8 py-3.5 text-sm font-medium text-white hover:bg-neutral-700 transition-colors duration-200"
