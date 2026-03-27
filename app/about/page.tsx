@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import ScrollStatement from '@/components/ScrollStatement'
 import ScrollHero from '@/components/ScrollHero'
+import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'About | JimsEstate',
@@ -99,16 +100,14 @@ export default function AboutPage() {
               </p>
               <div className="space-y-5">
                 {[
-                  { label: 'Phone', value: '(203) 555-0182' },
-                  { label: 'Email', value: 'hello@jimsestate.com' },
-                  { label: 'Office', value: '44 Greenwich Avenue\nGreenwich, CT 06830' },
-                  { label: 'Hours', value: 'Mon – Fri, 9 am – 6 pm\nSaturday, 10 am – 4 pm' },
-                ].map((item) => (
-                  <div key={item.label}>
-                    <p className="text-xs font-medium text-neutral-400">
-                      {item.label}
-                    </p>
-                    <p className="mt-1.5 text-neutral-800 whitespace-pre-line">{item.value}</p>
+                  { icon: Phone, value: '(203) 555-0182' },
+                  { icon: Mail, value: 'hello@jimsestate.com' },
+                  { icon: MapPin, value: '44 Greenwich Avenue\nGreenwich, CT 06830' },
+                  { icon: Clock, value: 'Mon – Fri, 9 am – 6 pm\nSaturday, 10 am – 4 pm' },
+                ].map(({ icon: Icon, value }) => (
+                  <div key={value} className="flex items-start gap-3">
+                    <Icon size={18} className="mt-0.5 shrink-0 text-neutral-900" />
+                    <p className="text-neutral-800 whitespace-pre-line">{value}</p>
                   </div>
                 ))}
               </div>
