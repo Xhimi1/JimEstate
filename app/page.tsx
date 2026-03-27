@@ -119,7 +119,8 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl">
           <motion.div variants={reveal} className="mb-16 flex items-end justify-between">
             <div>
-              <p className="mb-3 text-xs font-medium lowercase tracking-[0.2em] text-neutral-400">
+              <p className="mb-3 flex items-center gap-1.5 text-xs font-medium text-neutral-400">
+                <span className="inline-block h-1 w-4 rounded-full bg-neutral-300" />
                 Curated Selection
               </p>
               <h2 className="text-4xl font-semibold text-neutral-900 md:text-5xl">
@@ -164,7 +165,8 @@ export default function HomePage() {
       >
         <div className="mx-auto max-w-7xl">
           <motion.div variants={reveal} className="mb-12">
-            <p className="mb-3 text-xs font-medium lowercase tracking-[0.2em] text-neutral-400">
+            <p className="mb-3 flex items-center gap-1.5 text-xs font-medium text-neutral-400">
+              <span className="inline-block h-1 w-4 rounded-full bg-neutral-300" />
               Our Portfolio
             </p>
             <h2 className="text-4xl font-semibold text-neutral-900 md:text-5xl">
@@ -224,7 +226,8 @@ export default function HomePage() {
           viewport={{ once: true, amount: 0.4 }}
           variants={stagger}
         >
-          <motion.p variants={reveal} className="mb-4 text-xs lowercase tracking-[0.25em] text-white/50">
+          <motion.p variants={reveal} className="mb-4 flex items-center justify-center gap-1.5 text-xs font-medium text-white/50">
+            <span className="inline-block h-1 w-4 rounded-full bg-white/30" />
             Ready to find your home?
           </motion.p>
           <motion.h2 variants={reveal} className="mb-8 text-3xl font-medium text-white md:text-4xl" style={{ fontWeight: 350 }}>
