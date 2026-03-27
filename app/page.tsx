@@ -210,7 +210,7 @@ export default function HomePage() {
           </div>
 
           {/* Button below photos */}
-          <motion.div variants={reveal} className="mt-8">
+          <motion.div variants={reveal} className="mt-8 flex justify-end">
             <Link href="/listings" className="group flex items-center gap-1.5 text-sm font-medium text-neutral-500 hover:text-neutral-900 transition-colors duration-200">
               Explore our full gallery
               <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
