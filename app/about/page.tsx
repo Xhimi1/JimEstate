@@ -98,16 +98,27 @@ export default function AboutPage() {
                 Reach out and one of our agents will be in touch within one
                 business day.
               </p>
-              <div className="space-y-5">
+              <div className="space-y-8">
                 {[
-                  { icon: Phone, value: '(203) 555-0182' },
-                  { icon: Mail, value: 'hello@jimsestate.com' },
-                  { icon: MapPin, value: '44 Greenwich Avenue\nGreenwich, CT 06830' },
-                  { icon: Clock, value: 'Mon – Fri, 9 am – 6 pm\nSaturday, 10 am – 4 pm' },
-                ].map(({ icon: Icon, value }) => (
-                  <div key={value} className="flex items-start gap-3">
+                  { icon: Phone, value: '(203) 555-0182', href: 'tel:+12035550182' },
+                  { icon: Mail, value: 'hello@jimsestate.com', href: 'mailto:hello@jimsestate.com' },
+                  { icon: MapPin, value: '44 Greenwich Avenue\nGreenwich, CT 06830', href: 'https://maps.google.com/?q=44+Greenwich+Avenue+Greenwich+CT+06830' },
+                  { icon: Clock, value: 'Mon – Fri, 9 am – 6 pm\nSaturday, 10 am – 4 pm', href: null },
+                ].map(({ icon: Icon, value, href }) => (
+                  <div key={value} className="flex items-start gap-4">
                     <Icon size={18} className="mt-0.5 shrink-0 text-neutral-900" />
-                    <p className="text-neutral-800 whitespace-pre-line">{value}</p>
+                    {href ? (
+                      <a
+                        href={href}
+                        target={href.startsWith('http') ? '_blank' : undefined}
+                        rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        className="text-neutral-800 whitespace-pre-line underline underline-offset-4 decoration-neutral-300 hover:decoration-neutral-900 transition-colors duration-150 cursor-pointer"
+                      >
+                        {value}
+                      </a>
+                    ) : (
+                      <p className="text-neutral-800 whitespace-pre-line">{value}</p>
+                    )}
                   </div>
                 ))}
               </div>
