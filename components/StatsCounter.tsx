@@ -39,7 +39,7 @@ export default function StatsCounter() {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
       {stats.map((stat) => (
-        <div key={stat.label} className="bg-neutral-50 p-8">
+        <div key={stat.label} className="bg-neutral-50 p-8 text-center">
           <p className="text-5xl font-semibold text-neutral-900 md:text-6xl">
             <CountUp target={stat.target} suffix={stat.suffix} />
           </p>

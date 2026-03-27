@@ -108,7 +108,7 @@ export default function HomePage() {
             { target: 10, suffix: '+', label: 'Years Experience', desc: 'Over a decade of expertise in luxury residential real estate transactions.' },
             { target: 50, suffix: '+', label: 'Happy Clients', desc: 'Families and individuals who found their perfect home through our agency.' },
           ].map((stat) => (
-            <motion.div key={stat.label} variants={reveal} className="bg-neutral-50 p-8">
+            <motion.div key={stat.label} variants={reveal} className="bg-neutral-50 p-8 text-center">
               <p className="text-5xl font-semibold text-neutral-900 md:text-6xl">
                 <CountUp target={stat.target} suffix={stat.suffix} />
               </p>
