@@ -23,8 +23,8 @@ export default function ScrollHero({
     const overlay = overlayRef.current
     if (!overlay) return
     const handleScroll = () => {
-      const progress = Math.min(window.scrollY / window.innerHeight, 1)
-      const opacity = initialOpacity + progress * 0.35
+      const progress = Math.min(window.scrollY / (window.innerHeight * 0.45), 1)
+      const opacity = initialOpacity + progress * 0.45
       overlay.style.backgroundColor = `rgba(0,0,0,${opacity})`
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
