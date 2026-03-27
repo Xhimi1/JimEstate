@@ -5,6 +5,7 @@ import { motion, useInView } from 'framer-motion'
 import { listings } from '@/data/listings'
 import PropertyCard from '@/components/PropertyCard'
 import Link from 'next/link'
+import { ArrowUpRight } from 'lucide-react'
 
 const reveal = {
   hidden: { opacity: 0, y: 60, clipPath: 'inset(20% 0 0 0)' },
@@ -164,18 +165,32 @@ export default function HomePage() {
       >
         <div className="mx-auto max-w-7xl">
           <motion.div variants={reveal} className="mb-12">
-            {/* Mobile */}
+            {/* Desktop: heading + button side by side */}
+            <div className="hidden md:flex items-end justify-between">
+              <h2 className="text-4xl leading-tight" style={{ fontWeight: 400 }}>
+                <span className="block text-neutral-900">Every space tells a story of craftsmanship</span>
+                <span className="block text-neutral-400">and elegance. A timeless vision of refined living.</span>
+              </h2>
+              <Link href="/listings" className="group flex items-center gap-1.5 text-sm font-medium text-neutral-500 hover:text-neutral-900 transition-colors duration-200 mb-1">
+                Explore our full gallery
+                <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
+            </div>
+
+            {/* Mobile: heading only */}
             <h2 className="text-3xl leading-tight md:hidden" style={{ fontWeight: 400 }}>
               <span className="text-neutral-900">Every space </span>
               <span className="text-neutral-400">tells a story of craftsmanship and elegance. A timeless vision of refined living.</span>
             </h2>
-
-            {/* Desktop — two spans */}
-            <h2 className="hidden md:block text-4xl leading-tight" style={{ fontWeight: 400 }}>
-              <span className="block text-neutral-900">Every space tells a story of craftsmanship</span>
-              <span className="block text-neutral-400">and elegance. A timeless vision of refined living.</span>
-            </h2>
           </motion.div>
+
+          {/* Mobile button — below heading */}
+          <div className="mb-8 md:hidden">
+            <Link href="/listings" className="group flex items-center gap-1.5 text-sm font-medium text-neutral-500 hover:text-neutral-900 transition-colors duration-200">
+              Explore our full gallery
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
+          </div>
 
           {/* Masonry-style grid */}
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
