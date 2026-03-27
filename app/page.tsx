@@ -96,23 +96,24 @@ export default function HomePage() {
 
       {/* ── Stats Strip ── */}
       <motion.section
-        className="border-b border-neutral-100"
+        className="px-6 py-16"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={stagger}
       >
-        <div className="mx-auto max-w-7xl grid grid-cols-3 divide-x divide-neutral-100">
+        <div className="mx-auto max-w-7xl grid grid-cols-1 gap-4 md:grid-cols-3">
           {[
-            { target: 6, suffix: '', label: 'Active Listings' },
-            { target: 10, suffix: '+', label: 'Years Experience' },
-            { target: 50, suffix: '+', label: 'Happy Clients' },
+            { target: 6, suffix: '', label: 'Active Listings', desc: 'A curated selection of exceptional properties across the country\'s finest neighborhoods.' },
+            { target: 10, suffix: '+', label: 'Years Experience', desc: 'Over a decade of expertise in luxury residential real estate transactions.' },
+            { target: 50, suffix: '+', label: 'Happy Clients', desc: 'Families and individuals who found their perfect home through our agency.' },
           ].map((stat) => (
-            <motion.div key={stat.label} variants={reveal} className="py-10 text-center">
-              <p className="text-4xl font-semibold text-neutral-900 md:text-5xl">
+            <motion.div key={stat.label} variants={reveal} className="bg-neutral-50 p-8">
+              <p className="text-5xl font-semibold text-neutral-900 md:text-6xl">
                 <CountUp target={stat.target} suffix={stat.suffix} />
               </p>
-              <p className="mt-1.5 text-sm capitalize tracking-widest text-neutral-400 md:text-base md:text-neutral-600">{stat.label}</p>
+              <p className="mt-3 mb-2 text-base font-semibold text-neutral-800">{stat.label}</p>
+              <p className="text-sm leading-relaxed text-neutral-500">{stat.desc}</p>
             </motion.div>
           ))}
         </div>

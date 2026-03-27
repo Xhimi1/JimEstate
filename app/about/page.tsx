@@ -87,7 +87,7 @@ export default function AboutPage() {
           </div>
 
           {/* Stats Row */}
-          <div className="mb-24 border-t border-b border-neutral-100 py-14">
+          <div className="mb-24">
             <StatsCounter />
           </div>
 

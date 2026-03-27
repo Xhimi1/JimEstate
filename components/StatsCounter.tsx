@@ -30,22 +30,21 @@ function CountUp({ target, suffix = '' }: { target: number; suffix?: string }) {
 }
 
 const stats = [
-  { target: 6, suffix: '', label: 'Active Listings' },
-  { target: 10, suffix: '+', label: 'Years Experience' },
-  { target: 50, suffix: '+', label: 'Happy Clients' },
+  { target: 6, suffix: '', label: 'Active Listings', desc: 'A curated selection of exceptional properties across the country\'s finest neighborhoods.' },
+  { target: 10, suffix: '+', label: 'Years Experience', desc: 'Over a decade of expertise in luxury residential real estate transactions.' },
+  { target: 50, suffix: '+', label: 'Happy Clients', desc: 'Families and individuals who found their perfect home through our agency.' },
 ]
 
 export default function StatsCounter() {
   return (
-    <div className="grid grid-cols-1 gap-10 text-center md:grid-cols-3">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
       {stats.map((stat) => (
-        <div key={stat.label}>
-          <p className="mb-2 text-6xl font-semibold text-neutral-900 md:text-7xl">
+        <div key={stat.label} className="bg-neutral-50 p-8">
+          <p className="text-5xl font-semibold text-neutral-900 md:text-6xl">
             <CountUp target={stat.target} suffix={stat.suffix} />
           </p>
-          <p className="text-lg font-medium text-neutral-600 md:text-xl">
-            {stat.label}
-          </p>
+          <p className="mt-3 mb-2 text-base font-semibold text-neutral-800">{stat.label}</p>
+          <p className="text-sm leading-relaxed text-neutral-500">{stat.desc}</p>
         </div>
       ))}
     </div>
