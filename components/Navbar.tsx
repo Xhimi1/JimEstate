@@ -16,22 +16,9 @@ function Logo({ white }: { white: boolean }) {
   return (
     <Link href="/" className="flex items-center gap-2.5">
       {/* House + Key SVG logo */}
-      <svg width="36" height="30" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transition: 'stroke 0.3s' }}>
-        {/* Roof */}
-        <polyline points="10,52 60,8 110,52" stroke={stroke} strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
-        {/* Left wall down to key shaft */}
-        <line x1="10" y1="52" x2="10" y2="80" stroke={stroke} strokeWidth="7" strokeLinecap="round" />
-        {/* Key shaft (bottom) */}
-        <line x1="10" y1="80" x2="62" y2="80" stroke={stroke} strokeWidth="7" strokeLinecap="round" />
-        {/* Key teeth */}
-        <line x1="28" y1="80" x2="28" y2="70" stroke={stroke} strokeWidth="7" strokeLinecap="round" />
-        <line x1="44" y1="80" x2="44" y2="70" stroke={stroke} strokeWidth="7" strokeLinecap="round" />
-        {/* Right wall */}
-        <line x1="110" y1="52" x2="110" y2="62" stroke={stroke} strokeWidth="7" strokeLinecap="round" />
-        {/* Key bow outer circle */}
-        <circle cx="88" cy="76" r="18" stroke={stroke} strokeWidth="7" fill="none" />
-        {/* Key bow inner hole */}
-        <circle cx="88" cy="76" r="7" stroke={stroke} strokeWidth="5" fill="none" />
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transition: 'stroke 0.3s' }}>
+        <path d="M9 16C9.85038 16.6303 10.8846 17 12 17C13.1154 17 14.1496 16.6303 15 16" stroke={stroke} strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274" stroke={stroke} strokeWidth="1.5" strokeLinecap="round" />
       </svg>
       <span className="text-sm font-semibold uppercase tracking-widest" style={{ color: stroke, transition: 'color 0.3s' }}>
         JimsEstate
