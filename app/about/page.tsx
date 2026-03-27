@@ -69,14 +69,14 @@ export default function AboutPage() {
 
           {/* Two Images */}
           <div className="mb-24 grid grid-cols-1 gap-4 md:grid-cols-2">
-            <div className="overflow-hidden rounded-md">
+            <div className="overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80"
                 alt="Property interior"
                 className="h-72 w-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
-            <div className="overflow-hidden rounded-md">
+            <div className="overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=900&q=80"
                 alt="Property living space"
@@ -95,7 +95,7 @@ export default function AboutPage() {
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="mb-2 text-6xl font-semibold text-neutral-900 md:text-7xl">{stat.value}</p>
-                  <p className="text-sm font-medium text-neutral-400 md:text-base">
+                  <p className="text-base font-medium text-neutral-400 md:text-lg">
                     {stat.label}
                   </p>
                 </div>
@@ -105,7 +105,7 @@ export default function AboutPage() {
 
           {/* Contact & Team */}
           <div className="grid grid-cols-1 gap-16 md:grid-cols-2">
-            <div>
+            <div className="bg-neutral-100 p-8">
               <h2 className="mb-8 text-3xl font-semibold text-neutral-900">
                 Get in Touch
               </h2>
@@ -122,7 +122,7 @@ export default function AboutPage() {
                   { label: 'Hours', value: 'Mon – Fri, 9 am – 6 pm\nSaturday, 10 am – 4 pm' },
                 ].map((item) => (
                   <div key={item.label}>
-                    <p className="text-xs font-medium lowercase tracking-widest text-neutral-400">
+                    <p className="text-xs font-medium text-neutral-400">
                       {item.label}
                     </p>
                     <p className="mt-1.5 text-neutral-800 whitespace-pre-line">{item.value}</p>
