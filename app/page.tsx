@@ -51,12 +51,19 @@ function CountUp({ target, suffix = '' }: { target: number; suffix?: string }) {
 export default function HomePage() {
   const featuredListings = listings.filter((l) => l.featured)
   const heroRef = useRef<HTMLDivElement>(null)
+  const overlayRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const el = heroRef.current
+    const overlay = overlayRef.current
     if (!el) return
     const handleScroll = () => {
       el.style.transform = `scale(1.05) translateY(${window.scrollY * 0.2}px)`
+      if (overlay) {
+        const progress = Math.min(window.scrollY / window.innerHeight, 1)
+        const opacity = 0.55 + progress * 0.35
+        overlay.style.backgroundColor = `rgba(0,0,0,${opacity})`
+      }
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
@@ -77,11 +84,13 @@ export default function HomePage() {
             willChange: 'transform',
           }}
         />
-        <div className="absolute inset-0 bg-black/55" />
-        <div className="relative z-10 flex h-full items-end px-8 pb-16 md:px-14 md:pb-20">
-          <h1 className="max-w-6xl text-4xl leading-tight text-white md:text-6xl lg:text-7xl" style={{ fontWeight: 350 }}>
-            Exceptional homes in the world's finest neighborhoods
-          </h1>
+        <div ref={overlayRef} className="absolute inset-0" style={{ backgroundColor: 'rgba(0,0,0,0.55)' }} />
+        <div className="relative z-10 flex h-full items-end px-6 pb-16 md:pb-20">
+          <div className="mx-auto w-full max-w-7xl">
+            <h1 className="text-4xl leading-tight text-white md:text-6xl lg:text-7xl" style={{ fontWeight: 350 }}>
+              Exceptional homes in the world's finest neighborhoods
+            </h1>
+          </div>
         </div>
       </section>
 
