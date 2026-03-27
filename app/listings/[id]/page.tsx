@@ -4,6 +4,7 @@ import { listings } from '@/data/listings'
 import { BedDouble, Bath, Maximize2, MapPin, ArrowLeft } from 'lucide-react'
 import type { Metadata } from 'next'
 import ContactForm from '@/components/ContactForm'
+import ScrollHero from '@/components/ScrollHero'
 
 interface PageProps {
   params: { id: string }
@@ -50,13 +51,7 @@ export default function ListingDetailPage({ params }: PageProps) {
   return (
     <div>
       {/* Hero Image */}
-      <section className="relative h-[60vh] min-h-[420px] overflow-hidden">
-        <img
-          src={listing.image}
-          alt={listing.title}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/60" />
+      <ScrollHero image={listing.image} alt={listing.title} initialOpacity={0.6}>
         <div className="relative z-10 flex h-full items-end px-6 pb-16 md:pb-20">
           <div className="mx-auto w-full max-w-6xl">
             <h1 className="text-4xl leading-tight text-white md:text-5xl lg:text-6xl" style={{ fontWeight: 350 }}>
@@ -64,7 +59,7 @@ export default function ListingDetailPage({ params }: PageProps) {
             </h1>
           </div>
         </div>
-      </section>
+      </ScrollHero>
 
       <div className="px-6 py-12">
         <div className="mx-auto max-w-6xl">

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import StatsCounter from '@/components/StatsCounter'
 import ScrollStatement from '@/components/ScrollStatement'
+import ScrollHero from '@/components/ScrollHero'
 
 export const metadata: Metadata = {
   title: 'About | JimsEstate',
@@ -12,24 +13,20 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section
-        className="relative flex h-[70vh] min-h-[500px] items-end overflow-hidden"
-        style={{
-          backgroundImage:
-            'url(https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1600&q=80)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+      <ScrollHero
+        image="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1600&q=80"
+        alt="About JimsEstate"
+        height="h-[70vh] min-h-[500px]"
+        initialOpacity={0.5}
       >
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 w-full px-6 pb-16 md:pb-20">
-          <div className="mx-auto max-w-7xl">
+        <div className="relative z-10 flex h-full items-end w-full px-6 pb-16 md:pb-20">
+          <div className="mx-auto w-full max-w-7xl">
             <h1 className="text-4xl leading-tight text-white md:text-5xl lg:text-6xl" style={{ fontWeight: 350 }}>
               About JimsEstate
             </h1>
           </div>
         </div>
-      </section>
+      </ScrollHero>
 
       <div className="px-6 py-24">
         <div className="mx-auto max-w-7xl">

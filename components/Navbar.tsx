@@ -44,7 +44,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
-  const isHome = pathname === '/' || pathname === '/about'
+  const isHome = pathname === '/' || pathname === '/about' || /^\/listings\/.+/.test(pathname)
 
   useEffect(() => {
     setScrolled(window.scrollY > 60)
@@ -111,16 +111,18 @@ export default function Navbar() {
 
         {/* Reserve + Hamburger (mobile) */}
         <div className="flex items-center gap-3 md:hidden ml-auto">
-          <Link
-            href="/listings"
-            className="text-sm font-medium px-4 py-2 rounded transition-all duration-200"
-            style={{
-              backgroundColor: transparent ? '#ffffff' : '#171717',
-              color: transparent ? '#171717' : '#ffffff',
-            }}
-          >
-            Reserve
-          </Link>
+          {!mobileOpen && (
+            <Link
+              href="/listings"
+              className="text-sm font-medium px-4 py-2 rounded transition-all duration-200"
+              style={{
+                backgroundColor: transparent ? '#ffffff' : '#171717',
+                color: transparent ? '#171717' : '#ffffff',
+              }}
+            >
+              Reserve
+            </Link>
+          )}
           <button
             className="flex items-center justify-center"
             onClick={() => setMobileOpen(prev => !prev)}
