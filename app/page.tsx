@@ -230,28 +230,17 @@ export default function HomePage() {
           }}
         />
         <div className="absolute inset-0 bg-black/50" />
-        <motion.div
-          className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.4 }}
-          variants={stagger}
-        >
-          <motion.p variants={reveal} className="mb-4 text-xs font-medium text-white/50">
-            Ready to find your home?
-          </motion.p>
-          <motion.h2 variants={reveal} className="mb-8 text-3xl font-medium text-white md:text-4xl" style={{ fontWeight: 350 }}>
+        <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+          <h2 className="mb-8 text-3xl font-medium text-white md:text-4xl" style={{ fontWeight: 350 }}>
             Let us guide you home.
-          </motion.h2>
-          <motion.div variants={reveal}>
-            <Link
-              href="/listings"
-              className="inline-block rounded border border-white px-8 py-3.5 text-sm font-medium text-white hover:bg-white hover:text-neutral-900 transition-colors"
-            >
-              Explore Properties
-            </Link>
-          </motion.div>
-        </motion.div>
+          </h2>
+          <Link
+            href="/listings"
+            className="inline-block rounded border border-white px-8 py-3.5 text-sm font-medium text-white hover:bg-white hover:text-neutral-900 transition-colors"
+          >
+            Explore Properties
+          </Link>
+        </div>
       </section>
     </>
   )
