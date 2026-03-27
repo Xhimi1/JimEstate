@@ -43,7 +43,7 @@ export default function StatsCounter() {
           <p className="mb-2 text-6xl font-semibold text-neutral-900 md:text-7xl">
             <CountUp target={stat.target} suffix={stat.suffix} />
           </p>
-          <p className="text-base font-medium text-neutral-400 md:text-lg">
+          <p className="text-lg font-medium text-neutral-600 md:text-xl">
             {stat.label}
           </p>
         </div>
