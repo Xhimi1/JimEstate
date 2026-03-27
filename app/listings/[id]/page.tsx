@@ -57,10 +57,12 @@ export default function ListingDetailPage({ params }: PageProps) {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-black/60" />
-        <div className="relative z-10 flex h-full items-end px-8 pb-16 md:px-14 md:pb-20">
-          <h1 className="max-w-4xl text-4xl leading-tight text-white md:text-5xl lg:text-6xl" style={{ fontWeight: 350 }}>
-            {listing.title}
-          </h1>
+        <div className="relative z-10 flex h-full items-end px-6 pb-16 md:pb-20">
+          <div className="mx-auto w-full max-w-6xl">
+            <h1 className="text-4xl leading-tight text-white md:text-5xl lg:text-6xl" style={{ fontWeight: 350 }}>
+              {listing.title}
+            </h1>
+          </div>
         </div>
       </section>
 
