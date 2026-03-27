@@ -170,17 +170,11 @@ export default function HomePage() {
               <span className="text-neutral-400">tells a story of craftsmanship and elegance. A timeless vision of refined living.</span>
             </h2>
 
-            {/* Desktop — two stacked spans */}
-            <div className="hidden md:block">
-              <h2 className="text-4xl leading-tight mb-2" style={{ fontWeight: 400 }}>
-                <span className="block text-neutral-900">Every space</span>
-                <span className="block text-neutral-400">tells a story of craftsmanship</span>
-              </h2>
-              <h2 className="text-4xl leading-tight" style={{ fontWeight: 400 }}>
-                <span className="block text-neutral-900">and elegance.</span>
-                <span className="block text-neutral-400">A timeless vision of refined living.</span>
-              </h2>
-            </div>
+            {/* Desktop — two spans */}
+            <h2 className="hidden md:block text-4xl leading-tight" style={{ fontWeight: 400 }}>
+              <span className="block text-neutral-900">Every space tells a story of craftsmanship</span>
+              <span className="block text-neutral-400">and elegance. A timeless vision of refined living.</span>
+            </h2>
           </motion.div>
 
           {/* Masonry-style grid */}
