@@ -7,11 +7,8 @@ import { Menu, X } from 'lucide-react'
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/listings', label: 'Properties' },
   { href: '/listings', label: 'Buy' },
-  { href: '/listings', label: 'Sell' },
   { href: '/about', label: 'About' },
-  { href: '/about', label: 'Contact' },
 ]
 
 function Logo({ white }: { white: boolean }) {
