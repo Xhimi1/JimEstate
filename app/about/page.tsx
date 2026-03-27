@@ -22,7 +22,7 @@ export default function AboutPage() {
         <div className="relative z-10 flex h-full items-end w-full px-6 pb-16 md:pb-20">
           <div className="mx-auto w-full max-w-7xl">
             <h1 className="text-4xl leading-tight text-white md:text-5xl lg:text-6xl" style={{ fontWeight: 350 }}>
-              About JimsEstate
+              A boutique agency built on<br className="hidden md:block" /> trust, taste, and lasting relationships.
             </h1>
           </div>
         </div>
