@@ -5,6 +5,7 @@ import { motion, useInView } from 'framer-motion'
 import { listings } from '@/data/listings'
 import PropertyCard from '@/components/PropertyCard'
 import Link from 'next/link'
+import { Sparkles, Images, MapPin } from 'lucide-react'
 
 const reveal = {
   hidden: { opacity: 0, y: 60, clipPath: 'inset(20% 0 0 0)' },
@@ -120,10 +121,10 @@ export default function HomePage() {
           <motion.div variants={reveal} className="mb-16 flex items-end justify-between">
             <div>
               <p className="mb-3 flex items-center gap-1.5 text-xs font-medium text-neutral-400">
-                <span className="inline-block h-1 w-4 rounded-full bg-neutral-300" />
+                <Sparkles className="h-3.5 w-3.5 text-neutral-400" />
                 Curated Selection
               </p>
-              <h2 className="text-4xl font-semibold text-neutral-900 md:text-5xl">
+              <h2 className="text-3xl font-medium text-neutral-900 md:text-4xl" style={{ fontWeight: 400 }}>
                 Featured Properties
               </h2>
             </div>
@@ -166,11 +167,12 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl">
           <motion.div variants={reveal} className="mb-12">
             <p className="mb-3 flex items-center gap-1.5 text-xs font-medium text-neutral-400">
-              <span className="inline-block h-1 w-4 rounded-full bg-neutral-300" />
+              <Images className="h-3.5 w-3.5 text-neutral-400" />
               Our Portfolio
             </p>
-            <h2 className="text-4xl font-semibold text-neutral-900 md:text-5xl">
-              A Glimpse Inside
+            <h2 className="text-3xl md:text-4xl" style={{ fontWeight: 400 }}>
+              <span className="text-neutral-900">A Glimpse</span>
+              <span className="text-neutral-400"> Inside</span>
             </h2>
           </motion.div>
 
@@ -178,29 +180,29 @@ export default function HomePage() {
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
             {/* Large left image */}
             <motion.div variants={reveal} className="col-span-2 row-span-2">
-              <div className="relative aspect-[4/3] md:aspect-auto md:h-full min-h-[240px] overflow-hidden rounded-xl bg-neutral-200">
+              <div className="relative aspect-[4/3] md:aspect-auto md:h-full min-h-[240px] overflow-hidden rounded-md bg-neutral-200">
                 <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=75&auto=format" alt="Gallery 1" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
             </motion.div>
             {/* Top right */}
             <motion.div variants={reveal} className="col-span-1">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-neutral-200">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-neutral-200">
                 <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600&q=75&auto=format" alt="Gallery 2" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
             </motion.div>
             <motion.div variants={reveal} className="col-span-1">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-neutral-200">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-neutral-200">
                 <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=75&auto=format" alt="Gallery 3" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
             </motion.div>
             {/* Bottom right */}
             <motion.div variants={reveal} className="col-span-1">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-neutral-200">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-neutral-200">
                 <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=75&auto=format" alt="Gallery 4" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
             </motion.div>
             <motion.div variants={reveal} className="col-span-1">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-neutral-200">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-neutral-200">
                 <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=600&q=75&auto=format" alt="Gallery 5" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
             </motion.div>
@@ -227,7 +229,7 @@ export default function HomePage() {
           variants={stagger}
         >
           <motion.p variants={reveal} className="mb-4 flex items-center justify-center gap-1.5 text-xs font-medium text-white/50">
-            <span className="inline-block h-1 w-4 rounded-full bg-white/30" />
+            <MapPin className="h-3.5 w-3.5 text-white/40" />
             Ready to find your home?
           </motion.p>
           <motion.h2 variants={reveal} className="mb-8 text-3xl font-medium text-white md:text-4xl" style={{ fontWeight: 350 }}>
