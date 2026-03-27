@@ -181,29 +181,29 @@ export default function HomePage() {
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
             {/* Large left image */}
             <motion.div variants={reveal} className="col-span-2 row-span-2">
-              <div className="relative aspect-[4/3] md:aspect-auto md:h-full min-h-[240px] overflow-hidden rounded-md bg-neutral-200">
+              <div className="relative aspect-[4/3] md:aspect-auto md:h-full min-h-[240px] overflow-hidden bg-neutral-200">
                 <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=75&auto=format" alt="Gallery 1" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
             </motion.div>
             {/* Top right */}
             <motion.div variants={reveal} className="col-span-1">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-neutral-200">
+              <div className="relative aspect-[4/3] overflow-hidden bg-neutral-200">
                 <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600&q=75&auto=format" alt="Gallery 2" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
             </motion.div>
             <motion.div variants={reveal} className="col-span-1">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-neutral-200">
+              <div className="relative aspect-[4/3] overflow-hidden bg-neutral-200">
                 <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=75&auto=format" alt="Gallery 3" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
             </motion.div>
             {/* Bottom right */}
             <motion.div variants={reveal} className="col-span-1">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-neutral-200">
+              <div className="relative aspect-[4/3] overflow-hidden bg-neutral-200">
                 <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=75&auto=format" alt="Gallery 4" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
             </motion.div>
             <motion.div variants={reveal} className="col-span-1">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-neutral-200">
+              <div className="relative aspect-[4/3] overflow-hidden bg-neutral-200">
                 <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=600&q=75&auto=format" alt="Gallery 5" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
             </motion.div>

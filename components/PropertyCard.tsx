@@ -27,7 +27,7 @@ const typeLabels: Record<string, string> = {
 export default function PropertyCard({ listing }: PropertyCardProps) {
   return (
     <Link href={`/listings/${listing.id}`} className="group block">
-      <article className="rounded-xl border border-neutral-200 overflow-hidden transition-shadow duration-300 hover:shadow-md">
+      <article className="rounded-xl border border-neutral-300 overflow-hidden transition-shadow duration-300 hover:shadow-md">
         {/* Image */}
         <div className="relative aspect-[3/2] overflow-hidden bg-neutral-100">
           <img
