@@ -149,11 +149,11 @@ export default function AboutPage() {
                     photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80',
                   },
                 ].map((person) => (
-                  <div key={person.name} className="flex gap-5 rounded-lg border border-neutral-200 bg-white p-5">
+                  <div key={person.name} className="flex gap-3 rounded-lg border border-neutral-200 bg-white p-3 md:gap-5 md:p-5">
                     <img
                       src={person.photo}
                       alt={person.name}
-                      className="h-20 w-20 shrink-0 rounded-lg object-cover object-top"
+                      className="h-12 w-12 shrink-0 rounded-full object-cover object-top md:h-20 md:w-20 md:rounded-lg"
                     />
                     <div>
                       <p className="mb-0.5 text-lg font-semibold text-neutral-900">{person.name}</p>
