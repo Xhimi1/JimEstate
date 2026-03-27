@@ -167,10 +167,9 @@ export default function HomePage() {
             <p className="mb-3 text-xs font-medium text-neutral-400">
               Our Portfolio
             </p>
-            <h2 style={{ fontWeight: 400 }}>
-              <span className="block text-3xl leading-tight text-neutral-900 md:text-4xl">A Glimpse</span>
-              <span className="block text-3xl leading-tight text-neutral-400 md:text-4xl">Into Luxury</span>
-              <span className="block text-3xl leading-tight text-neutral-300 md:text-4xl">Living.</span>
+            <h2 className="text-3xl leading-tight md:text-4xl" style={{ fontWeight: 400 }}>
+              <span className="text-neutral-900">Every space </span>
+              <span className="text-neutral-400">tells a story of craftsmanship, elegance, and timeless design.</span>
             </h2>
           </motion.div>
 
