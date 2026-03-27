@@ -53,7 +53,7 @@ function ListingsInner() {
     <div className="pt-28 pb-24 px-6">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12">
-          <p className="mb-3 text-xs font-medium lowercase tracking-[0.2em] text-neutral-400">Browse</p>
+          <p className="mb-3 text-xs font-medium text-neutral-400">Browse</p>
           <h1 className="text-5xl font-semibold text-neutral-900 md:text-6xl">All Listings</h1>
         </div>
 
