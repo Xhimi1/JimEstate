@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import StatsCounter from '@/components/StatsCounter'
+import ScrollStatement from '@/components/ScrollStatement'
 
 export const metadata: Metadata = {
   title: 'About | JimsEstate',
@@ -69,7 +70,7 @@ export default function AboutPage() {
           </div>
 
           {/* Two Images */}
-          <div className="mb-24 grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="mb-0 grid grid-cols-1 gap-4 md:grid-cols-2">
             <div className="overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80"
@@ -85,6 +86,9 @@ export default function AboutPage() {
               />
             </div>
           </div>
+
+          {/* Scroll Statement */}
+          <ScrollStatement />
 
           {/* Stats Row */}
           <div className="mb-24">
