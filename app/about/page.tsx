@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import ScrollHero from '@/components/ScrollHero'
-import { Phone, Mail, MapPin, Clock } from 'lucide-react'
+import { Phone, Mail, MapPin, Clock, ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -90,16 +90,17 @@ export default function AboutPage() {
               <span className="block text-neutral-900">Your next chapter begins</span>
               <span className="block text-neutral-400">with finding a home that truly feels like yours.</span>
             </h2>
-            <h2 className="text-3xl leading-tight md:hidden mb-6" style={{ fontWeight: 400 }}>
+            <h2 className="text-3xl leading-tight md:hidden mb-6 text-center" style={{ fontWeight: 400 }}>
               <span className="text-neutral-900">Your next chapter begins </span>
               <span className="text-neutral-400">with finding a home that truly feels like yours.</span>
             </h2>
-            <div className="flex justify-start md:justify-center">
+            <div className="flex justify-center">
               <Link
                 href="/listings"
-                className="inline-block rounded bg-neutral-900 px-8 py-3.5 text-sm font-medium text-white hover:bg-neutral-700 transition-colors duration-200"
+                className="inline-flex items-center gap-2 rounded bg-neutral-900 px-8 py-3.5 text-sm font-medium text-white hover:bg-neutral-700 transition-colors duration-200"
               >
                 Make a home yours
+                <ArrowUpRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
