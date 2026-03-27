@@ -94,7 +94,7 @@ export default function AboutPage() {
               <span className="text-neutral-900">Your next chapter begins </span>
               <span className="text-neutral-400">with finding a home that truly feels like yours.</span>
             </h2>
-            <div className="flex justify-end">
+            <div className="flex justify-start">
               <Link
                 href="/listings"
                 className="inline-block rounded bg-neutral-900 px-8 py-3.5 text-sm font-medium text-white hover:bg-neutral-700 transition-colors duration-200"
