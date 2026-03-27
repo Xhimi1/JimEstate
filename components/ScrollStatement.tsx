@@ -40,15 +40,15 @@ export default function ScrollStatement() {
 
   return (
     <div ref={containerRef} className="py-32 md:py-40">
-      <p className="text-4xl leading-snug md:text-5xl lg:text-6xl">
-        <span className="block mb-2" style={{ fontWeight: 600 }}>
+      <p className="text-3xl leading-snug md:text-5xl lg:text-6xl" style={{ fontWeight: 350, textWrap: 'balance' } as React.CSSProperties}>
+        <span className="block mb-1">
           {PART1.map((word, i) => (
             <span key={i} className="word-dark inline-block mr-[0.3em]" style={{ color: '#d4d4d4' }}>
               {word}
             </span>
           ))}
         </span>
-        <span className="block" style={{ fontWeight: 350 }}>
+        <span className="block">
           {PART2.map((word, i) => (
             <span key={i} className="word-light inline-block mr-[0.3em]" style={{ color: '#d4d4d4' }}>
               {word}
