@@ -182,7 +182,8 @@ export default function HomePage() {
             </h2>
             {/* Mobile */}
             <h2 className="text-3xl leading-tight md:hidden" style={{ fontWeight: 400 }}>
-              <span className="text-neutral-900">Every space tells a story of craftsmanship and elegance. A timeless vision of refined living.</span>
+              <span className="text-neutral-900">Every space tells a story of craftsmanship </span>
+              <span className="text-neutral-400">and elegance. A timeless vision of refined living.</span>
             </h2>
           </motion.div>
 
