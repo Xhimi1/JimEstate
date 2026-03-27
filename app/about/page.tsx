@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import ScrollStatement from '@/components/ScrollStatement'
 import ScrollHero from '@/components/ScrollHero'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'About | JimsEstate',
@@ -86,6 +87,15 @@ export default function AboutPage() {
 
           {/* Scroll Statement */}
           <ScrollStatement />
+
+          <div className="mb-24 flex justify-center">
+            <Link
+              href="/listings"
+              className="inline-block rounded bg-neutral-900 px-8 py-3.5 text-sm font-medium text-white hover:bg-neutral-700 transition-colors duration-200"
+            >
+              Make a home yours
+            </Link>
+          </div>
 
           {/* Contact & Team */}
           <div className="grid grid-cols-1 gap-16 md:grid-cols-2">
