@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import ScrollStatement from '@/components/ScrollStatement'
 import ScrollHero from '@/components/ScrollHero'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 import Link from 'next/link'
@@ -86,15 +85,23 @@ export default function AboutPage() {
           </div>
 
           {/* Scroll Statement */}
-          <ScrollStatement />
-
-          <div className="mb-24 flex justify-center">
-            <Link
-              href="/listings"
-              className="inline-block rounded bg-neutral-900 px-8 py-3.5 text-sm font-medium text-white hover:bg-neutral-700 transition-colors duration-200"
-            >
-              Make a home yours
-            </Link>
+          <div className="py-32 md:py-40">
+            <h2 className="hidden md:block text-4xl leading-tight mb-6" style={{ fontWeight: 400 }}>
+              <span className="block text-neutral-900">Your next chapter begins</span>
+              <span className="block text-neutral-400">with finding a home that truly feels like yours.</span>
+            </h2>
+            <h2 className="text-3xl leading-tight md:hidden mb-6" style={{ fontWeight: 400 }}>
+              <span className="text-neutral-900">Your next chapter begins </span>
+              <span className="text-neutral-400">with finding a home that truly feels like yours.</span>
+            </h2>
+            <div className="flex justify-end">
+              <Link
+                href="/listings"
+                className="inline-block rounded bg-neutral-900 px-8 py-3.5 text-sm font-medium text-white hover:bg-neutral-700 transition-colors duration-200"
+              >
+                Make a home yours
+              </Link>
+            </div>
           </div>
 
           {/* Contact & Team */}
