@@ -89,7 +89,7 @@ export default function AboutPage() {
 
           {/* Contact & Team */}
           <div className="grid grid-cols-1 gap-16 md:grid-cols-2">
-            <div className="bg-neutral-100 p-8">
+            <div className="rounded-lg bg-neutral-100 p-8">
               <h2 className="mb-8 text-3xl font-semibold text-neutral-900">
                 Get in Touch
               </h2>
@@ -124,7 +124,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="md:pt-8">
+            <div className="bg-neutral-100 p-8">
               <h2 className="mb-8 text-3xl font-semibold text-neutral-900">
                 Our Principals
               </h2>
@@ -149,11 +149,11 @@ export default function AboutPage() {
                     photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80',
                   },
                 ].map((person) => (
-                  <div key={person.name} className="flex gap-5 border border-neutral-200 bg-white p-5">
+                  <div key={person.name} className="flex gap-5 rounded-lg border border-neutral-200 bg-white p-5">
                     <img
                       src={person.photo}
                       alt={person.name}
-                      className="h-20 w-20 shrink-0 object-cover object-top"
+                      className="h-20 w-20 shrink-0 rounded-lg object-cover object-top"
                     />
                     <div>
                       <p className="mb-0.5 text-lg font-semibold text-neutral-900">{person.name}</p>
