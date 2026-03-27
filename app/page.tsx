@@ -164,12 +164,10 @@ export default function HomePage() {
       >
         <div className="mx-auto max-w-7xl">
           <motion.div variants={reveal} className="mb-12">
-            <p className="mb-3 text-xs font-medium text-neutral-400">
-              Our Portfolio
-            </p>
             <h2 className="text-3xl leading-tight md:text-4xl" style={{ fontWeight: 400 }}>
-              <span className="text-neutral-900">Every space </span>
-              <span className="text-neutral-400">tells a story of craftsmanship, elegance, and timeless design.</span>
+              <span className="block text-neutral-900">Every space</span>
+              <span className="block text-neutral-400">tells a story of craftsmanship and elegance.</span>
+              <span className="hidden md:block text-neutral-400">A timeless vision of refined living.</span>
             </h2>
           </motion.div>
 
