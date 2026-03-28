@@ -69,7 +69,7 @@ export default function PropertyCard({ listing }: PropertyCardProps) {
           </div>
 
           {/* CTA */}
-          <div className="rounded-xl bg-neutral-900 py-2.5 text-center text-sm font-medium text-white transition-colors duration-300 group-hover:bg-neutral-700">
+          <div className="rounded-lg bg-neutral-900 py-2.5 text-center text-sm font-medium text-white transition-colors duration-300 group-hover:bg-neutral-700">
             View Property
           </div>
 
