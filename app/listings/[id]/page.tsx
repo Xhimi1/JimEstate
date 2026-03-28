@@ -95,38 +95,19 @@ export default function ListingDetailPage({ params }: PageProps) {
               </div>
 
               {/* Stats Row */}
-              <div className="mb-10 flex flex-wrap gap-6 border-t border-b border-stone-200 py-6">
-                <div className="flex items-center gap-2">
-                  <BedDouble className="h-5 w-5 text-stone-400" />
-                  <div>
-                    <p className="text-lg font-semibold text-black">
-                      {listing.beds}
-                    </p>
-                    <p className="text-xs text-stone-500">
-                      {listing.beds === 1 ? 'Bedroom' : 'Bedrooms'}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Bath className="h-5 w-5 text-stone-400" />
-                  <div>
-                    <p className="text-lg font-semibold text-black">
-                      {listing.baths}
-                    </p>
-                    <p className="text-xs text-stone-500">
-                      {listing.baths === 1 ? 'Bathroom' : 'Bathrooms'}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Maximize2 className="h-5 w-5 text-stone-400" />
-                  <div>
-                    <p className="text-lg font-semibold text-black">
-                      {formatSqft(listing.sqft)}
-                    </p>
-                    <p className="text-xs text-stone-500">Square Feet</p>
-                  </div>
-                </div>
+              <div className="mb-10 flex flex-wrap gap-3">
+                <span className="flex items-center gap-2 rounded-lg border border-neutral-300 bg-neutral-100 px-4 py-2.5 text-sm text-neutral-600">
+                  <BedDouble className="h-4 w-4 text-neutral-400" />
+                  {listing.beds} {listing.beds === 1 ? 'Bedroom' : 'Bedrooms'}
+                </span>
+                <span className="flex items-center gap-2 rounded-lg border border-neutral-300 bg-neutral-100 px-4 py-2.5 text-sm text-neutral-600">
+                  <Bath className="h-4 w-4 text-neutral-400" />
+                  {listing.baths} {listing.baths === 1 ? 'Bathroom' : 'Bathrooms'}
+                </span>
+                <span className="flex items-center gap-2 rounded-lg border border-neutral-300 bg-neutral-100 px-4 py-2.5 text-sm text-neutral-600">
+                  <Maximize2 className="h-4 w-4 text-neutral-400" />
+                  {formatSqft(listing.sqft)} sqft
+                </span>
               </div>
 
               {/* Description */}
