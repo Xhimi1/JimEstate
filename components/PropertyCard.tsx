@@ -37,11 +37,11 @@ export default function PropertyCard({ listing }: PropertyCardProps) {
         <div className="pt-4">
 
           {/* Title + Price */}
-          <div className="flex items-start justify-between gap-2 mb-1">
-            <p className="font-semibold text-neutral-900 leading-snug line-clamp-1 text-[15px]">
+          <div className="flex items-start justify-between gap-6 mb-1">
+            <p className="min-w-0 font-semibold text-neutral-900 leading-snug line-clamp-1 text-[15px]">
               {listing.title}
             </p>
-            <p className="shrink-0 font-semibold text-neutral-900 text-[15px]">
+            <p className="shrink-0 font-semibold text-neutral-900 text-[17px]">
               {formatPrice(listing.price)}
             </p>
           </div>
