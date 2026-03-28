@@ -35,14 +35,8 @@ export default function SearchBar({
           value={value}
           onChange={handleChange}
           placeholder={placeholder}
-          className="w-full rounded-md border border-neutral-300 bg-white py-3.5 pl-11 pr-28 text-sm text-neutral-900 placeholder-neutral-400 outline-none focus:border-neutral-900 transition-colors"
+          className="w-full rounded-md border border-neutral-300 bg-white py-3.5 pl-11 pr-4 text-sm text-neutral-900 placeholder-neutral-400 outline-none focus:border-neutral-900 transition-colors"
         />
-        <button
-          type="submit"
-          className="absolute right-1.5 top-1/2 -translate-y-1/2 rounded bg-neutral-900 px-4 py-2 text-sm font-medium text-white hover:bg-neutral-700 transition-colors"
-        >
-          Search
-        </button>
       </div>
     </form>
   )
