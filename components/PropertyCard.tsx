@@ -75,6 +75,11 @@ export default function PropertyCard({ listing }: PropertyCardProps) {
             </span>
           </div>
 
+          {/* CTA Button */}
+          <div className="rounded-lg border border-neutral-300 py-2.5 text-center text-sm font-medium text-neutral-800 transition-all duration-300 group-hover:bg-neutral-900 group-hover:border-neutral-900 group-hover:text-white">
+            View Property
+          </div>
+
         </div>
       </article>
     </Link>
