@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { BedDouble, Bath, Maximize2, MapPin, Heart } from 'lucide-react'
+import { BedDouble, Bath, Maximize2, MapPin } from 'lucide-react'
 import { Listing } from '@/data/listings'
 
 interface PropertyCardProps {
@@ -21,10 +21,10 @@ function formatSqft(sqft: number): string {
 export default function PropertyCard({ listing }: PropertyCardProps) {
   return (
     <Link href={`/listings/${listing.id}`} className="group block">
-      <article className="rounded-2xl bg-white shadow-sm overflow-hidden transition-shadow duration-300 group-hover:shadow-lg p-4">
+      <article className="rounded-2xl bg-white shadow-sm overflow-hidden transition-shadow duration-300 group-hover:shadow-lg border border-neutral-300 p-4">
 
         {/* Image */}
-        <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-neutral-300 bg-neutral-100">
+        <div className="relative aspect-[4/3] overflow-hidden bg-neutral-100">
           <img
             src={listing.image}
             alt={listing.title}
@@ -68,14 +68,9 @@ export default function PropertyCard({ listing }: PropertyCardProps) {
             </span>
           </div>
 
-          {/* Bottom row: CTA + Heart */}
-          <div className="flex items-center gap-2">
-            <div className="flex-1 rounded-xl bg-neutral-900 py-2.5 text-center text-sm font-medium text-white transition-colors duration-300 group-hover:bg-neutral-700">
-              View Property
-            </div>
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-neutral-200 text-neutral-400 transition-colors duration-300 hover:border-neutral-900 hover:text-neutral-900">
-              <Heart className="h-4 w-4" />
-            </div>
+          {/* CTA */}
+          <div className="rounded-xl bg-neutral-900 py-2.5 text-center text-sm font-medium text-white transition-colors duration-300 group-hover:bg-neutral-700">
+            View Property
           </div>
 
         </div>
