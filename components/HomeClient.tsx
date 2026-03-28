@@ -1,0 +1,258 @@
+'use client'
+
+import { useEffect, useRef, useState } from 'react'
+import { motion, useInView } from 'framer-motion'
+import { SanityListing } from '@/lib/sanity/queries'
+import PropertyCard from '@/components/PropertyCard'
+import Link from 'next/link'
+import { ArrowUpRight } from 'lucide-react'
+
+const reveal = {
+  hidden: { opacity: 0, y: 60, clipPath: 'inset(20% 0 0 0)' },
+  visible: {
+    opacity: 1,
+    y: 0,
+    clipPath: 'inset(0% 0 0 0)',
+    transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
+  },
+}
+
+const revealCard = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
+  },
+}
+
+const stagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15 } },
+}
+
+function CountUp({ target, suffix = '' }: { target: number; suffix?: string }) {
+  const [count, setCount] = useState(0)
+  const ref = useRef<HTMLSpanElement>(null)
+  const inView = useInView(ref, { once: true })
+
+  useEffect(() => {
+    if (!inView) return
+    let start = 0
+    const duration = 1200
+    const step = 16
+    const increment = target / (duration / step)
+    const timer = setInterval(() => {
+      start += increment
+      if (start >= target) {
+        setCount(target)
+        clearInterval(timer)
+      } else {
+        setCount(Math.floor(start))
+      }
+    }, step)
+    return () => clearInterval(timer)
+  }, [inView, target])
+
+  return <span ref={ref}>{count}{suffix}</span>
+}
+
+export default function HomeClient({ featuredListings }: { featuredListings: SanityListing[] }) {
+  const heroRef = useRef<HTMLDivElement>(null)
+  const overlayRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const el = heroRef.current
+    const overlay = overlayRef.current
+    if (!el) return
+    const handleScroll = () => {
+      el.style.transform = `scale(1.05) translateY(${window.scrollY * 0.2}px)`
+      if (overlay) {
+        const progress = Math.min(window.scrollY / window.innerHeight, 1)
+        const opacity = 0.55 + progress * 0.35
+        overlay.style.backgroundColor = `rgba(0,0,0,${opacity})`
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  return (
+    <>
+      {/* ── Hero ── */}
+      <section className="relative h-screen min-h-[600px] overflow-hidden">
+        <div
+          ref={heroRef}
+          className="absolute inset-0 scale-105"
+          style={{
+            backgroundImage:
+              'url(https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1200&q=75&auto=format)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center 20%',
+            willChange: 'transform',
+          }}
+        />
+        <div ref={overlayRef} className="absolute inset-0" style={{ backgroundColor: 'rgba(0,0,0,0.55)' }} />
+        <div className="relative z-10 flex h-full items-end px-6 pb-16 md:pb-20">
+          <div className="mx-auto w-full max-w-7xl">
+            <h1 className="text-4xl leading-tight text-white md:text-6xl lg:text-7xl" style={{ fontWeight: 350 }}>
+              Exceptional homes in the world's finest neighborhoods
+            </h1>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Stats Strip ── */}
+      <motion.section
+        className="px-6 py-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={stagger}
+      >
+        <div className="mx-auto max-w-7xl grid grid-cols-1 gap-4 md:grid-cols-3">
+          {[
+            { target: 6, suffix: '', label: 'Active Listings', desc: 'A curated selection of exceptional properties across the country\'s finest neighborhoods.' },
+            { target: 10, suffix: '+', label: 'Years Experience', desc: 'Over a decade of expertise in luxury residential real estate transactions.' },
+            { target: 50, suffix: '+', label: 'Happy Clients', desc: 'Families and individuals who found their perfect home through our agency.' },
+          ].map((stat) => (
+            <motion.div key={stat.label} variants={reveal} className="bg-neutral-50 p-8 text-center">
+              <p className="text-5xl font-semibold text-neutral-900 md:text-6xl">
+                <CountUp target={stat.target} suffix={stat.suffix} />
+              </p>
+              <p className="mt-3 mb-2 text-base font-semibold text-neutral-800">{stat.label}</p>
+              <p className="text-sm leading-relaxed text-neutral-500">{stat.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
+
+      {/* ── Featured Listings ── */}
+      <motion.section
+        className="px-6 py-24 md:py-32"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={stagger}
+      >
+        <div className="mx-auto max-w-7xl">
+          <motion.div variants={reveal} className="mb-16 flex items-end justify-between">
+            <div>
+              <p className="mb-3 text-xs font-medium text-neutral-400">
+                Curated Selection
+              </p>
+              <h2 className="text-3xl font-medium text-neutral-900 md:text-4xl" style={{ fontWeight: 400 }}>
+                Featured Properties
+              </h2>
+            </div>
+            <Link
+              href="/listings"
+              className="hidden md:block text-sm font-medium px-5 py-2.5 rounded bg-neutral-900 text-white hover:bg-neutral-700 transition-colors duration-200"
+            >
+              View all →
+            </Link>
+          </motion.div>
+
+          <div className="mb-8 md:hidden">
+            <Link
+              href="/listings"
+              className="inline-block text-sm font-medium px-5 py-2.5 rounded bg-neutral-900 text-white hover:bg-neutral-700 transition-colors duration-200"
+            >
+              View all →
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {featuredListings.map((listing) => (
+              <motion.div key={listing._id} variants={revealCard}>
+                <PropertyCard listing={listing} />
+              </motion.div>
+            ))}
+          </div>
+
+        </div>
+      </motion.section>
+
+      {/* ── Gallery ── */}
+      <motion.section
+        className="px-6 py-24 md:py-32 bg-neutral-50"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={stagger}
+      >
+        <div className="mx-auto max-w-7xl">
+          <motion.div variants={reveal} className="mb-12">
+            <h2 className="hidden md:block text-4xl leading-tight" style={{ fontWeight: 400 }}>
+              <span className="block text-neutral-900">Every space tells a story of craftsmanship</span>
+              <span className="block text-neutral-400">and elegance. A timeless vision of refined living.</span>
+            </h2>
+            <h2 className="text-3xl leading-tight md:hidden" style={{ fontWeight: 400 }}>
+              <span className="text-neutral-900">Every space tells a story of craftsmanship </span>
+              <span className="text-neutral-400">and elegance. A timeless vision of refined living.</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+            <motion.div variants={reveal} className="col-span-2 row-span-2">
+              <div className="relative aspect-[4/3] md:aspect-auto md:h-full min-h-[240px] overflow-hidden bg-neutral-200">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=75&auto=format" alt="Gallery 1" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
+              </div>
+            </motion.div>
+            <motion.div variants={reveal} className="col-span-1">
+              <div className="relative aspect-[4/3] overflow-hidden bg-neutral-200">
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600&q=75&auto=format" alt="Gallery 2" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
+              </div>
+            </motion.div>
+            <motion.div variants={reveal} className="col-span-1">
+              <div className="relative aspect-[4/3] overflow-hidden bg-neutral-200">
+                <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=75&auto=format" alt="Gallery 3" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
+              </div>
+            </motion.div>
+            <motion.div variants={reveal} className="col-span-1">
+              <div className="relative aspect-[4/3] overflow-hidden bg-neutral-200">
+                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=75&auto=format" alt="Gallery 4" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
+              </div>
+            </motion.div>
+            <motion.div variants={reveal} className="col-span-1">
+              <div className="relative aspect-[4/3] overflow-hidden bg-neutral-200">
+                <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=600&q=75&auto=format" alt="Gallery 5" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
+              </div>
+            </motion.div>
+          </div>
+
+          <motion.div variants={reveal} className="mt-8 flex justify-end">
+            <Link href="/listings" className="group flex items-center gap-1.5 text-sm font-medium text-neutral-500 hover:text-neutral-900 transition-colors duration-200">
+              Explore our full gallery
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* ── Full-bleed Banner ── */}
+      <section className="relative h-96 overflow-hidden">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url(https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=75&auto=format)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center 40%',
+          }}
+        />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+          <h2 className="mb-8 text-3xl font-medium text-white md:text-4xl" style={{ fontWeight: 350 }}>
+            Let us guide you home.
+          </h2>
+          <Link
+            href="/listings"
+            className="inline-block rounded border border-white px-8 py-3.5 text-sm font-medium text-white hover:bg-white hover:text-neutral-900 transition-colors"
+          >
+            Explore Properties
+          </Link>
+        </div>
+      </section>
+    </>
+  )
+}
