@@ -21,7 +21,7 @@ function formatSqft(sqft: number): string {
 export default function PropertyCard({ listing }: PropertyCardProps) {
   return (
     <Link href={`/listings/${listing.id}`} className="group block">
-      <article className="rounded-2xl bg-white shadow-sm overflow-hidden transition-shadow duration-300 group-hover:shadow-lg border border-neutral-300 p-4">
+      <article className="rounded-2xl bg-white shadow-sm overflow-hidden transition-shadow duration-300 group-hover:shadow-lg border border-neutral-200 p-4">
 
         {/* Image */}
         <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
