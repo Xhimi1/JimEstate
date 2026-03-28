@@ -21,10 +21,10 @@ function formatSqft(sqft: number): string {
 export default function PropertyCard({ listing }: PropertyCardProps) {
   return (
     <Link href={`/listings/${listing.id}`} className="group block">
-      <article className="rounded-2xl bg-white shadow-sm overflow-hidden transition-shadow duration-300 group-hover:shadow-lg">
+      <article className="rounded-2xl bg-white shadow-sm overflow-hidden transition-shadow duration-300 group-hover:shadow-lg p-4">
 
         {/* Image */}
-        <div className="relative aspect-[4/3] overflow-hidden bg-neutral-100">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-neutral-300 bg-neutral-100">
           <img
             src={listing.image}
             alt={listing.title}
@@ -34,7 +34,7 @@ export default function PropertyCard({ listing }: PropertyCardProps) {
         </div>
 
         {/* Content */}
-        <div className="px-4 pt-4 pb-4">
+        <div className="pt-4">
 
           {/* Title + Price */}
           <div className="flex items-start justify-between gap-2 mb-1">
@@ -54,15 +54,15 @@ export default function PropertyCard({ listing }: PropertyCardProps) {
 
           {/* Stats chips */}
           <div className="flex items-center gap-2 mb-4">
-            <span className="flex items-center gap-1.5 rounded-lg border border-neutral-200 px-3 py-1.5 text-xs text-neutral-600">
+            <span className="flex items-center gap-1.5 rounded-lg border border-neutral-300 bg-neutral-100 px-3 py-1.5 text-xs text-neutral-600">
               <BedDouble className="h-3.5 w-3.5 text-neutral-400" />
               {listing.beds} Beds
             </span>
-            <span className="flex items-center gap-1.5 rounded-lg border border-neutral-200 px-3 py-1.5 text-xs text-neutral-600">
+            <span className="flex items-center gap-1.5 rounded-lg border border-neutral-300 bg-neutral-100 px-3 py-1.5 text-xs text-neutral-600">
               <Bath className="h-3.5 w-3.5 text-neutral-400" />
               {listing.baths} Baths
             </span>
-            <span className="flex items-center gap-1.5 rounded-lg border border-neutral-200 px-3 py-1.5 text-xs text-neutral-600">
+            <span className="flex items-center gap-1.5 rounded-lg border border-neutral-300 bg-neutral-100 px-3 py-1.5 text-xs text-neutral-600">
               <Maximize2 className="h-3.5 w-3.5 text-neutral-400" />
               {formatSqft(listing.sqft)} sqft
             </span>
