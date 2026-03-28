@@ -1,23 +1,24 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { listings } from '@/data/listings'
+import { getListingBySlug, getAllSlugs } from '@/lib/sanity/queries'
 import { BedDouble, Bath, Maximize2, MapPin, ArrowLeft } from 'lucide-react'
 import type { Metadata } from 'next'
 import ContactForm from '@/components/ContactForm'
 import ScrollHero from '@/components/ScrollHero'
+
+export const revalidate = 60
 
 interface PageProps {
   params: { id: string }
 }
 
 export async function generateStaticParams() {
-  return listings.map((listing) => ({
-    id: listing.id,
-  }))
+  const slugs = await getAllSlugs()
+  return slugs.map((slug) => ({ id: slug }))
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const listing = listings.find((l) => l.id === params.id)
+  const listing = await getListingBySlug(params.id)
   if (!listing) return { title: 'Not Found | JimsEstate' }
   return {
     title: `${listing.title} | JimsEstate`,
@@ -43,15 +44,15 @@ const typeLabels: Record<string, string> = {
   townhouse: 'Townhouse',
 }
 
-export default function ListingDetailPage({ params }: PageProps) {
-  const listing = listings.find((l) => l.id === params.id)
+export default async function ListingDetailPage({ params }: PageProps) {
+  const listing = await getListingBySlug(params.id)
 
   if (!listing) notFound()
 
   return (
     <div>
       {/* Hero Image */}
-      <ScrollHero image={listing.image} alt={listing.title} initialOpacity={0.6}>
+      <ScrollHero image={listing.imageUrl} alt={listing.title} initialOpacity={0.6}>
         <div className="relative z-10 flex h-full items-end px-6 pb-16 md:pb-20">
           <div className="mx-auto w-full max-w-6xl">
             <h1 className="text-4xl leading-tight text-white md:text-5xl lg:text-6xl" style={{ fontWeight: 350 }}>

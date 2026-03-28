@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { listings } from '@/data/listings'
+import { getFeaturedListings, SanityListing } from '@/lib/sanity/queries'
 import PropertyCard from '@/components/PropertyCard'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
@@ -58,9 +58,13 @@ function CountUp({ target, suffix = '' }: { target: number; suffix?: string }) {
 }
 
 export default function HomePage() {
-  const featuredListings = listings.filter((l) => l.featured)
+  const [featuredListings, setFeaturedListings] = useState<SanityListing[]>([])
   const heroRef = useRef<HTMLDivElement>(null)
   const overlayRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    getFeaturedListings().then(setFeaturedListings)
+  }, [])
 
   useEffect(() => {
     const el = heroRef.current
@@ -198,13 +202,11 @@ export default function HomePage() {
 
           {/* Masonry-style grid */}
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-            {/* Large left image */}
             <motion.div variants={reveal} className="col-span-2 row-span-2">
               <div className="relative aspect-[4/3] md:aspect-auto md:h-full min-h-[240px] overflow-hidden bg-neutral-200">
                 <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=75&auto=format" alt="Gallery 1" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
             </motion.div>
-            {/* Top right */}
             <motion.div variants={reveal} className="col-span-1">
               <div className="relative aspect-[4/3] overflow-hidden bg-neutral-200">
                 <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600&q=75&auto=format" alt="Gallery 2" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
@@ -215,7 +217,6 @@ export default function HomePage() {
                 <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=75&auto=format" alt="Gallery 3" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
             </motion.div>
-            {/* Bottom right */}
             <motion.div variants={reveal} className="col-span-1">
               <div className="relative aspect-[4/3] overflow-hidden bg-neutral-200">
                 <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=75&auto=format" alt="Gallery 4" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
@@ -228,7 +229,6 @@ export default function HomePage() {
             </motion.div>
           </div>
 
-          {/* Button below photos */}
           <motion.div variants={reveal} className="mt-8 flex justify-end">
             <Link href="/listings" className="group flex items-center gap-1.5 text-sm font-medium text-neutral-500 hover:text-neutral-900 transition-colors duration-200">
               Explore our full gallery

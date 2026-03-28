@@ -1,6 +1,6 @@
 'use client'
 
-import { Filters, TypeFilter, BedFilter } from '@/app/listings/page'
+import { Filters, TypeFilter, BedFilter } from '@/components/ListingsGrid'
 
 interface FilterBarProps {
   filters: Filters

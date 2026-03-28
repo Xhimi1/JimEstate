@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import { BedDouble, Bath, Maximize2, MapPin } from 'lucide-react'
-import { Listing } from '@/data/listings'
+import { SanityListing } from '@/lib/sanity/queries'
 
 interface PropertyCardProps {
-  listing: Listing
+  listing: SanityListing
 }
 
 function formatPrice(price: number): string {
@@ -20,13 +20,13 @@ function formatSqft(sqft: number): string {
 
 export default function PropertyCard({ listing }: PropertyCardProps) {
   return (
-    <Link href={`/listings/${listing.id}`} className="group block">
+    <Link href={`/listings/${listing.slug}`} className="group block">
       <article className="rounded-2xl bg-white shadow-lg overflow-hidden transition-shadow duration-300 group-hover:shadow-xl border border-neutral-200 p-4">
 
         {/* Image */}
         <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
           <img
-            src={listing.image}
+            src={listing.imageUrl}
             alt={listing.title}
             loading="lazy"
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
