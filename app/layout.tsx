@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import { Archivo } from 'next/font/google'
 import './globals.css'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
 
 // Load Archivo as a variable font — supports any weight 100–900 including 350
 const archivo = Archivo({
@@ -32,9 +30,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${archivo.className}`}>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        {children}
       </body>
     </html>
   )

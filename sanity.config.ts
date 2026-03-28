@@ -7,6 +7,7 @@ export default defineConfig({
   title: 'Real Estate',
   projectId: 'acjkye8h',
   dataset: 'production',
+  basePath: '/studio',
   plugins: [structureTool()],
   schema: {
     types: schemaTypes,

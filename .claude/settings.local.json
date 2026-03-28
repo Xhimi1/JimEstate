@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(start \"\" \"http://localhost:3002/studio\")",
+      "Bash(rm \"c:/Users/xhimi/OneDrive/Documents/Real Estate/app/studio/[[...tool]]/page.tsx\")",
+      "Bash(rmdir \"c:/Users/xhimi/OneDrive/Documents/Real Estate/app/studio/[[...tool]]\")",
+      "Read(//c/Users/xhimi/yes/**)",
+      "Bash(npx sanity:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npm install:*)",
+      "Bash(find . -type f -name *sanity* -o -name sanity.config.*)"
+    ]
+  }
+}
