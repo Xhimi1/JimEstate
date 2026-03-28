@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { BedDouble, Bath, Maximize2 } from 'lucide-react'
+import { BedDouble, Bath, Maximize2, MapPin, Heart } from 'lucide-react'
 import { Listing } from '@/data/listings'
 
 interface PropertyCardProps {
@@ -18,66 +18,64 @@ function formatSqft(sqft: number): string {
   return new Intl.NumberFormat('en-US').format(sqft)
 }
 
-const typeLabels: Record<string, string> = {
-  house: 'House',
-  condo: 'Condo',
-  townhouse: 'Townhouse',
-}
-
 export default function PropertyCard({ listing }: PropertyCardProps) {
   return (
     <Link href={`/listings/${listing.id}`} className="group block">
-      <article className="rounded-xl border border-neutral-300 overflow-hidden transition-shadow duration-300 hover:shadow-md">
+      <article className="rounded-2xl bg-white shadow-sm overflow-hidden transition-shadow duration-300 group-hover:shadow-lg">
+
         {/* Image */}
-        <div className="relative aspect-[3/2] overflow-hidden bg-neutral-100">
+        <div className="relative aspect-[4/3] overflow-hidden bg-neutral-100">
           <img
             src={listing.image}
             alt={listing.title}
             loading="lazy"
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          {/* Type badge overlaid on image */}
-          <span className="absolute top-4 left-4 bg-white/90 px-3 py-1 text-xs font-medium uppercase tracking-widest text-neutral-700 rounded-full">
-            {typeLabels[listing.type]}
-          </span>
         </div>
 
         {/* Content */}
-        <div className="px-5 pt-5 pb-5">
-          {/* Price */}
-          <p className="mb-1.5 text-2xl font-semibold text-neutral-900">
-            {formatPrice(listing.price)}
-          </p>
+        <div className="px-4 pt-4 pb-4">
 
-          {/* Title */}
-          <p className="mb-1 font-medium text-neutral-800 leading-snug line-clamp-1">
-            {listing.title}
-          </p>
+          {/* Title + Price */}
+          <div className="flex items-start justify-between gap-2 mb-1">
+            <p className="font-semibold text-neutral-900 leading-snug line-clamp-1 text-[15px]">
+              {listing.title}
+            </p>
+            <p className="shrink-0 font-semibold text-neutral-900 text-[15px]">
+              {formatPrice(listing.price)}
+            </p>
+          </div>
 
-          {/* Address */}
-          <p className="mb-4 text-sm text-neutral-400 line-clamp-1">
-            {listing.address}, {listing.city}, {listing.state}
-          </p>
+          {/* Location */}
+          <div className="flex items-center gap-1 mb-4 text-sm text-neutral-400">
+            <MapPin className="h-3.5 w-3.5 shrink-0" />
+            <span className="line-clamp-1">{listing.city}, {listing.state}</span>
+          </div>
 
-          {/* Stats */}
-          <div className="flex items-center gap-5 border-t border-neutral-100 pt-4 pb-4 text-sm text-neutral-500">
-            <span className="flex items-center gap-1.5">
+          {/* Stats chips */}
+          <div className="flex items-center gap-2 mb-4">
+            <span className="flex items-center gap-1.5 rounded-lg border border-neutral-200 px-3 py-1.5 text-xs text-neutral-600">
               <BedDouble className="h-3.5 w-3.5 text-neutral-400" />
-              {listing.beds}
+              {listing.beds} Beds
             </span>
-            <span className="flex items-center gap-1.5">
+            <span className="flex items-center gap-1.5 rounded-lg border border-neutral-200 px-3 py-1.5 text-xs text-neutral-600">
               <Bath className="h-3.5 w-3.5 text-neutral-400" />
-              {listing.baths}
+              {listing.baths} Baths
             </span>
-            <span className="flex items-center gap-1.5">
+            <span className="flex items-center gap-1.5 rounded-lg border border-neutral-200 px-3 py-1.5 text-xs text-neutral-600">
               <Maximize2 className="h-3.5 w-3.5 text-neutral-400" />
               {formatSqft(listing.sqft)} sqft
             </span>
           </div>
 
-          {/* CTA Button */}
-          <div className="rounded-lg border border-neutral-300 py-2.5 text-center text-sm font-medium text-neutral-800 transition-all duration-300 group-hover:bg-neutral-900 group-hover:border-neutral-900 group-hover:text-white">
-            View Property
+          {/* Bottom row: CTA + Heart */}
+          <div className="flex items-center gap-2">
+            <div className="flex-1 rounded-xl bg-neutral-900 py-2.5 text-center text-sm font-medium text-white transition-colors duration-300 group-hover:bg-neutral-700">
+              View Property
+            </div>
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-neutral-200 text-neutral-400 transition-colors duration-300 hover:border-neutral-900 hover:text-neutral-900">
+              <Heart className="h-4 w-4" />
+            </div>
           </div>
 
         </div>
