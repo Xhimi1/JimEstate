@@ -17,6 +17,15 @@ const reveal = {
   },
 }
 
+const revealCard = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
+  },
+}
+
 const stagger = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.15 } },
@@ -156,7 +165,7 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {featuredListings.map((listing) => (
-              <motion.div key={listing.id} variants={reveal}>
+              <motion.div key={listing.id} variants={revealCard}>
                 <PropertyCard listing={listing} />
               </motion.div>
             ))}
