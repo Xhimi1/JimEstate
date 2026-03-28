@@ -47,7 +47,7 @@ export default function ContactForm({ listingTitle }: ContactFormProps) {
         <div>
           <label
             htmlFor="name"
-            className="mb-1 block text-xs font-medium uppercase tracking-widest text-stone-500"
+            className="mb-1 block text-xs font-medium text-stone-500"
           >
             Full Name
           </label>
@@ -65,7 +65,7 @@ export default function ContactForm({ listingTitle }: ContactFormProps) {
         <div>
           <label
             htmlFor="email"
-            className="mb-1 block text-xs font-medium uppercase tracking-widest text-stone-500"
+            className="mb-1 block text-xs font-medium text-stone-500"
           >
             Email Address
           </label>
@@ -83,7 +83,7 @@ export default function ContactForm({ listingTitle }: ContactFormProps) {
         <div>
           <label
             htmlFor="message"
-            className="mb-1 block text-xs font-medium uppercase tracking-widest text-stone-500"
+            className="mb-1 block text-xs font-medium text-stone-500"
           >
             Message
           </label>

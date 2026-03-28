@@ -77,7 +77,7 @@ export default function ListingDetailPage({ params }: PageProps) {
             {/* Left: Details (2/3) */}
             <div className="lg:col-span-2">
               {/* Type Badge */}
-              <span className="mb-4 inline-block border border-stone-300 px-3 py-1 text-xs font-medium uppercase tracking-widest text-stone-500">
+              <span className="mb-4 inline-block rounded-md border border-stone-300 px-3 py-1 text-xs font-medium uppercase tracking-widest text-stone-500">
                 {typeLabels[listing.type]}
               </span>
 
