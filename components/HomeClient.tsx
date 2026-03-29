@@ -247,7 +247,7 @@ export default function HomeClient({ featuredListings }: { featuredListings: San
           </h2>
           <Link
             href="/listings"
-            className="inline-block rounded border border-white px-8 py-3.5 text-sm font-medium text-white hover:bg-white hover:text-neutral-900 transition-colors"
+            className="inline-block border border-white px-8 py-3.5 text-sm font-medium text-white hover:bg-white hover:text-neutral-900 transition-colors"
           >
             Explore Properties
           </Link>
